@@ -12,34 +12,26 @@ def chunksGenerate(numbers, chunksCount):
         startIndex += chunksSize
         endIndex += chunksSize
 
-# function solution (разбиваем по размеру чанка)
-
-def getChunks(numbers, chunkSize):
-    chunksCount = len(numbers) // chunkSize
-    chunks = []
-    startIndex = 0
-    endIndex = chunkSize
-    currentChunkNumber = 1
-
-    while currentChunkNumber <= chunksCount:
-        chunks.append(numbers[startIndex:endIndex])
-        startIndex = currentChunkNumber * chunkSize
-        endIndex += chunkSize
-        currentChunkNumber += 1
-
-    return chunks
-
 
 chunksCount = 4
 numbers = list(range(1, 101))
 
 chunkFunc = chunksGenerate(numbers, chunksCount)
-print(next(chunkFunc))
-print(next(chunkFunc))
-print(next(chunkFunc))
-print(next(chunkFunc))
+# print(next(chunkFunc))
+# print(next(chunkFunc))
+# print(next(chunkFunc))
+# print(next(chunkFunc))
 
-chunkSize = 5
-chunks = getChunks(numbers, chunkSize)
-for chunk in chunks:
-    print(chunk)
+
+def test(x):
+    yield x + 1
+    yield x + 2
+    return
+    # недостижимый код
+    yield x + 3
+
+t = test(10)
+print(next(t))
+print(next(t))
+# следующее выполнение генератора даст исключение StopIteration
+#print(next(t))
