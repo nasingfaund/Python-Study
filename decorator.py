@@ -26,8 +26,11 @@ def getFuncExecTime(execFunc, timeValue, resultFormat):
     return execTime if resultFormat == TimeFormat.Seconds else execTime * 100
 
 
+# фукнция-декоратор
 def decoratorFunc(timeFormat):
+    # функция, принимающая в качестве параметра декорируемую функцию
     def outer(execFunc):
+        # декорируемый код
         def inner(timeValue):
             execTime = getFuncExecTime(execFunc, timeValue, timeFormat)
             print(f'exec time: {execTime} {str(timeFormat)}')
@@ -48,6 +51,4 @@ def someProcess2(timeValue):
     time.sleep(timeValue)
 
 
-someProcess2(3)
-
-#
+someProcess(5)
