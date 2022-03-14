@@ -64,11 +64,12 @@ decryptTests = {
     'A4B3C2XYZD4E3F3A6BCS4D2C': 'AAAABBBCCXYZDDDDEEEFFFAAAAAABCSSSSDDC',
     'ABCDE' : 'ABCDE'
 }
+def encryptTest():
+    for s in encryptTests:
+        assert RLE(s) == encryptTests[s]
+        print(f'RLE({s}) = {RLE(s)}')
 
-# for s in encryptTests:
-#     assert RLE(s) == encryptTests[s]
-#     print(f'RLE({s}) = {RLE(s)}')
-
-for s in decryptTests:
-    assert deRLE(s) == decryptTests[s]
-    print(f'deRLE({s}) = {deRLE(s)}')
+def decryptTest():
+    for s in decryptTests:
+        assert deRLE(s) == decryptTests[s]
+        print(f'deRLE({s}) = {deRLE(s)}')
