@@ -22,10 +22,13 @@ chunkFunc = chunksGenerate(numbers, chunksCount)
 # print(next(chunkFunc))
 # print(next(chunkFunc))
 
+# ГЕНЕРАТОРЫ БЫВАЮТ ДВУХ ТИПОВ
+# 1. ФУКНЦИЯ-ГЕНЕРАТОР
 
 def test(x):
     yield x + 1
     yield x + 2
+    yield x + 5
     return
     # недостижимый код
     yield x + 3
@@ -33,5 +36,14 @@ def test(x):
 t = test(10)
 print(next(t))
 print(next(t))
+print(next(t))
 # следующее выполнение генератора даст исключение StopIteration
 #print(next(t))
+
+# 2. ГЕНЕРАТОРНОЕ ВЫРАЖЕНИЕ
+genexpr = (x**2 for x in range(1,5))
+print(next(genexpr))
+print(next(genexpr))
+print(next(genexpr))
+print(next(genexpr))
+
