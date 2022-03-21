@@ -80,11 +80,36 @@ class LinkedList:
 
         self.count += 1
 
+    def reverse(self):
+        current = self.__head
+        prev = None
+
+        while current:
+            # запомним ссылку на следующий элемент после текущего, т.к. следующим действием мы эту ссылку перезапишем
+            temp = current.next
+            # следующий становится предыдущим (меняем элементы местами)
+            current.next = prev
+            # предыдущий становится текущим, т.к. двигаемся вперед
+            prev = current
+            # текущий становится temp, то есть следующим
+            current = temp
+
+        self.__head = prev
+
+l = LinkedList()
+l.add(1)
+l.add(2)
+l.add(3)
+l.add(1)
+l.add(222)
+l.add(55)
+l.reverse()
+l.print()
 
 try:
 
     linkedList = LinkedList()
-    message = 'input command (a=add, r=remove, c=count, p=print, i=insert, e=exit)'
+    message = 'input command (a=add, r=remove, c=count, p=print, i=insert, e=exit, rev=reverse)'
 
     while True:
 
@@ -113,6 +138,10 @@ try:
             index = int(input('index: '))
             value = int(input('value: '))
             linkedList.insert(index, value)
+            continue
+
+        if s == 'rev':
+            linkedList.reverse()
             continue
 
         if s == 'e':

@@ -24,20 +24,39 @@ tree.right.right = TreeNode(14)
       
 '''
 
-# обход в ширину
-def BFS(node):
 
-    # случайно написал и сработало, но это больше напоминает обход в глубину
-    # print(node.value)
-    # if node.left:
-    #     BFS(node.left)
-    # if node.right:
-    #     BFS(node.right)
+def getTreeSum(node):
+    pass
+
+
+# рекурсивный обход в ширину
+def recursiveBFS(node, left=None, right=None):
 
     if node:
         print(node.value)
-    BFS(node.left)
-    BFS(node.right)
+    else:
+        return
+
+    if left:
+        print(left.value)
+
+    if right:
+        print(right.value)
+
+    if left:
+        recursiveBFS(left, left, right)
+    if right:
+        recursiveBFS(right, left, right)
 
 
-BFS(tree)
+# рекурсивный обход в глубину
+def recursiveDFS(node):
+    if not node:
+        return
+
+    print(node.value)
+    recursiveDFS(node.left)
+    recursiveDFS(node.right)
+
+
+recursiveBFS(tree)
