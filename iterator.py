@@ -19,9 +19,8 @@ class IncreaseByTwo:
 
 iterator = IncreaseByTwo(5)
 
-#for value in iterator:
-    #print(value)
-
+# for value in iterator:
+# print(value)
 
 # будет выход за границы итератора
 # for i in range(1, 7):
@@ -36,6 +35,6 @@ def increase(count):
         yield value
 
 
-generator = increase(5)
-for i in generator:
-    print(i)
+iterator = increase(10)
+for v in iterator:
+    print(v)
