@@ -11,6 +11,7 @@ class Bike(ABC):
     # абстрактный метод обязательно должен быть реализован наследниками
     @abstractmethod
     def move(self):
+        print('default move')
         pass
 
 
@@ -21,6 +22,7 @@ class UsualBike(Bike):
         self.bikeType = bikeType
 
     def move(self):
+        super().move()
         print(f'{self.bikeType} bike {self.model} move with speed {self.speed}')
 
 

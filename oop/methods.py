@@ -36,8 +36,6 @@ class Person:
     def __str__(self):
         return self.getinfo()
 
-    # свойства:
-
     @classmethod
     def getPersonsCount(cls):
         return cls.__persons_count
@@ -58,6 +56,19 @@ class Person:
     def Age(self, newAge):
         self.__age = newAge
 
+    def _protected_method(self):
+        print('protected method')
+
+    def __private_method(self):
+        print('private method')
+
+
+class Person2(Person):
+
+    def __init__(self):
+        pass
+
+    pass
 
 person = Person.createFromBirthYear('Eva', 2007)
 print(Person.is_adult(person.Age))
@@ -70,6 +81,16 @@ print(f'personsCount: {Person.getPersonsCount()}')
 # свойства
 print(person.Name)
 print(person.Age)
+
+# private/protected методы
+# IDE сругается
+#person.__private_method(
+Person2()._protected_method()
+
+# на самом деле в пайтоне нет поддержки модификаторов доступа
+# _ и __ это всего лишь общепринятые понятия
+# ниже мы можем получить доступ к типа скрытому полю класса через его инстанс:
+print(person._Person__age)
 
 # различия между classmethod и staticmethod:
 # 1. staticmethod не имеет ссылку ни на объект класса (self), ни на сам класс (cls)
