@@ -1,5 +1,5 @@
 """
-Написать параметризированный декоратор,
+Написать ПАРАМЕТРИЗОВАННЫЙ декоратор,
 который печатает время выполнения декорированной функции.
 Параметр декоратора — печатать время выполнения в секундах или в миллисекундах.
 """
@@ -13,34 +13,29 @@ class TimeFormat(Enum):
     Milliseconds = 'ms'
 
 
-# фукнция-обертка для вычисления время выполнения функции execFunc
-# код этой функции можно было разместить внутри декоратора (в inner),
-# но для удобства вынесено отдельно
-def getFuncExecTime(execFunc, timeValue, resultFormat):
-    start_time = time.monotonic()
-    execFunc(timeValue)
-    finish_time = time.monotonic()
-    # отбросим дробную часть, образованную в результате погрешностей
-    execTime = (finish_time - start_time) // 1
-    # тернарный оператор
-    return execTime if resultFormat == TimeFormat.Seconds else execTime * 100
+# фукнция-декоратор с параметром
+def decoratorFunc(time_format):
 
+    # декорируемая функция
+    def outer(exec_func):
 
-# фукнция-декоратор
-def decoratorFunc(timeFormat):
-    # функция, принимающая в качестве параметра декорируемую функцию
-    def outer(execFunc):
-        # декорируемый код
-        def inner(timeValue):
-            execTime = getFuncExecTime(execFunc, timeValue, timeFormat)
-            print(f'exec time: {execTime} {str(timeFormat)}')
-            # return execTime
+        # параметры для декорируемой функции
+        def inner(*args):
+            start_time = time.monotonic()
+            exec_func(*args)
+            finish_time = time.monotonic()
+            # отбросим дробную часть, образованную в результате погрешностей
+            exec_time = (finish_time - start_time) // 1
+            # тернарный оператор
+            exec_time = exec_time if time_format == TimeFormat.Seconds else exec_time * 1000
+            print(f'exec time: {exec_time} {str(time_format)}')
 
         return inner
 
     return outer
 
-
+# это параметризованный декоратор (именно сам декоратор, т.к.
+# в его аннотации есть передача параметра. вообще можно сделать без параметров)
 @decoratorFunc(TimeFormat.Milliseconds)
 def someProcess(timeValue):
     time.sleep(timeValue)
@@ -51,4 +46,4 @@ def someProcess2(timeValue):
     time.sleep(timeValue)
 
 
-someProcess(5)
+someProcess(3)

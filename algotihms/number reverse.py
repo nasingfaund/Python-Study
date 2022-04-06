@@ -1,0 +1,18 @@
+def reverse(number):
+    result = 0
+
+    while number >= 1:
+        remainder = number % 10
+        result = result * 10 + remainder
+        number //= 10
+
+    return result
+
+
+num1 = 23429948362932032342066756853420667568534234206675685234206675685342342066756853434
+num2 = 3458760707832223420699483629320323420667568534267568534234206675685347420223420667568
+num3 = 9948362932032342342994836293203234206675685342066756853423420667568523420206675685342
+
+assert str(reverse(num1)) == str(num1)[::-1]
+assert str(reverse(num2)) == str(num2)[::-1]
+assert str(reverse(num3)) == str(num3)[::-1]
