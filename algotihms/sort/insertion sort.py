@@ -2,28 +2,20 @@ from test_functions import generate_list, test
 
 
 def insertion_sort(numbers):
-    n = len(numbers)
-    current_index = 2
-    sorted_part = numbers[0:current_index]
 
-    while True:
+    result = [numbers[0]]
 
-        i = len(sorted_part) - 1
+    for i in range(1, len(numbers)):
 
-        # сортируем с конца "отсортированный" подмассив
-        while i != 0:
-            if sorted_part[i] < sorted_part[i - 1]:
-                sorted_part[i], sorted_part[i - 1] = sorted_part[i - 1], sorted_part[i]
-            i -= 1
+        result.append(numbers[i])
+        j = len(result) - 1
 
-        if current_index > n - 1:
-            break
+        while j > 0:
+            if result[j - 1] > result[j]:
+                result[j], result[j - 1] = result[j - 1], result[j]
+            j -= 1
 
-        sorted_part.append(numbers[current_index])
-        current_index += 1
-        # print(f'sorted: {sorted_part}')
-
-    return sorted_part
+    return result
 
 
 # l = generate_list(10)
