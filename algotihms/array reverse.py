@@ -1,3 +1,6 @@
+import copy
+
+
 def reverse(nums):
     l, r = 0, len(nums) - 1
 
@@ -8,7 +11,6 @@ def reverse(nums):
     return nums
 
 
-nums = list(reversed(range(1, 11)))
-print(nums)
-nums = reverse(nums)
-print(nums)
+nums = list(range(1, 11))
+nums_1 = copy.copy(nums)
+assert reverse(nums_1) == list(reversed(nums))
