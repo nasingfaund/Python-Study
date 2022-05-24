@@ -30,12 +30,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../django site" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nightblure/Desktop/dev/Python/Python Study&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nightblure\Desktop\dev\Python\Python Study\algotihms\sort" />
@@ -45,7 +44,7 @@
       <recent name="C:\Users\nightblure\Desktop\Python\Python Study" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.array reverse">
+  <component name="RunManager" selected="Python.b-tree">
     <configuration name="array reverse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python Study" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.array reverse" />
         <item itemvalue="Python.b-tree" />
+        <item itemvalue="Python.array reverse" />
         <item itemvalue="Python.insertion sort" />
         <item itemvalue="Python.magic methods &amp; slots" />
         <item itemvalue="Python.generator &amp; iterator practice" />

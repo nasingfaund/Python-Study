@@ -89,4 +89,4 @@ def rDFS(node):
     return sum
 
 
-print(getTreeSumWidth(root))
+print(getTreeSumDeep(root))
