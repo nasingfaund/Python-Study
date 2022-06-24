@@ -7,7 +7,6 @@ def generate_list(n):
 
 
 def get_exec_time(func):
-
     def inner(*args):
         inner.__name__ = func.__name__
         start_time = time.time()
@@ -24,7 +23,6 @@ TESTS_COUNT = 50
 
 @get_exec_time
 def test(sort_algo):
-
     for i in range(TESTS_COUNT):
 
         test_list = generate_list(ELEMENTS_COUNT)
