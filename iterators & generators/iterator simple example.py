@@ -19,22 +19,13 @@ class IncreaseByTwo:
 
 iterator = IncreaseByTwo(5)
 
-# for value in iterator:
-# print(value)
-
-# будет выход за границы итератора
-# for i in range(1, 7):
-#     print(next(iterator))
-
-# 2. Неявная реализация
-def increase(count):
-    value = currentCount = 0
-    while currentCount < count:
-        value += 2
-        currentCount += 1
-        yield value
-
-
-iterator = increase(10)
 for v in iterator:
+    print(v)
+
+
+# итерируемый объект из списка
+l = [v for v in range(2, 11) if v % 2 == 0]
+it = iter(l)
+
+for v in it:
     print(v)
