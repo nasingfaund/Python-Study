@@ -15,10 +15,8 @@ class TimeFormat(Enum):
 
 # фукнция-декоратор с параметром
 def decoratorFunc(time_format):
-
     # декорируемая функция
     def outer(exec_func):
-
         # параметры для декорируемой функции
         def inner(*args):
             start_time = time.monotonic()
@@ -33,6 +31,7 @@ def decoratorFunc(time_format):
         return inner
 
     return outer
+
 
 # это параметризованный декоратор (именно сам декоратор, т.к.
 # в его аннотации есть передача параметра. вообще можно сделать без параметров)

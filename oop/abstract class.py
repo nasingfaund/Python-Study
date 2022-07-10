@@ -43,3 +43,6 @@ bike.move()
 
 bike = MountainBike('Stels', 'mountain', 50)
 bike.move()
+
+# нельзя создать объект абстрактного класса
+#bike = Bike('s', 's', 10)
