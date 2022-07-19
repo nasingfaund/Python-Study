@@ -47,7 +47,7 @@
       <recent name="C:\Users\nightblure\Desktop\dev\Python\Python Study\oop" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.decorator 2">
+  <component name="RunManager" selected="Python.custom context manager">
     <configuration name="abstract class" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python Study" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -69,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="classmethod &amp; staticmethod" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="context manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python Study" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,11 +77,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oop" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oop/classmethod &amp; staticmethod.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\nightblure\Desktop\dev\Python\Python Study\context manager.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.custom context manager" />
         <item itemvalue="Python.decorator 2" />
         <item itemvalue="Python.decorator" />
         <item itemvalue="Python.simple decorator example" />
         <item itemvalue="Python.abstract class" />
-        <item itemvalue="Python.classmethod &amp; staticmethod" />
       </list>
     </recent_temporary>
   </component>

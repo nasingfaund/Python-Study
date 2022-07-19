@@ -5,31 +5,28 @@ class Resource:
         print(f'create resource: {name}')
         self.__name = name
 
-    def get_name(self):
-        return self.__name
+    def action(self):
+        print('do something...')
 
-    # кастомная логика освобождения ресурса
-    def close(self):
+    # логика освобождения ресурса
+    def __close(self):
         print('close resource')
 
-
-class ResourceWith:
-    def __init__(self, name):
-        self.__resource = Resource(name)
-
-    # enter должен возвращать ресурс
+    # enter должен возвращать тип/объект
     def __enter__(self):
-        return self.__resource
+        return self
 
-    # exit освобождает ресурс
+    # exit вызывает освобождение ресурса
     def __exit__(self, type, value, traceback):
-        self.__resource.close()
+        self.__close()
 
+
+res = Resource('resource')
 
 # теперь менеджер управляет созданием объекта и его высвобождением
-with ResourceWith('res') as r:
-    print(r.get_name())
-
+with res:
+    res.action()
+print('-------------------------------------')
 
 # 2 способ - использование модуля contextlib (через декораторы)
 from contextlib import contextmanager
@@ -51,7 +48,7 @@ def file_open(filepath):
     except OSError as e:
         print(e)
     finally:
-        print('Closing file')
+        print('close file')
         if f_obj is not None:
             f_obj.close()
 
