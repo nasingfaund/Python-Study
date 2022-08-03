@@ -28,14 +28,15 @@ with res:
     res.action()
 print('-------------------------------------')
 
+
 # 2 способ - использование модуля contextlib (через декораторы)
 from contextlib import contextmanager
 import os.path
 
+
 # декорируем нашу функцию
 @contextmanager
 def file_open(filepath):
-
     f_obj = None
 
     try:
@@ -45,12 +46,11 @@ def file_open(filepath):
 
         f_obj = open(filepath, 'w')
         yield f_obj
-    except OSError as e:
-        print(e)
+
     finally:
-        print('close file')
         if f_obj is not None:
             f_obj.close()
+            print('file has been closed')
 
 
 with file_open('test.txt') as file:
