@@ -1,4 +1,4 @@
-from test_functions import generate_list, test
+from test_functions import generate_list
 
 
 def merge_sort(numbers):

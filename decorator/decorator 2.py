@@ -12,9 +12,9 @@ def get_exec_time(func):
 
     def inner(*args):
         inner.__name__ = func.__name__
-        start_time = time.time()
+        start_time = time.monotonic()
         func(*args)
-        finish_time = time.time()
+        finish_time = time.monotonic()
         return finish_time - start_time
 
     return inner

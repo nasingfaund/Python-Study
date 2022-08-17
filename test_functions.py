@@ -9,10 +9,10 @@ def generate_list(n):
 def get_exec_time(func):
     def inner(*args):
         inner.__name__ = func.__name__
-        start_time = time.time()
+        start_time = time.monotonic()
         func(*args)
-        finish_time = time.time()
-        print(f'execution time: {round(finish_time - start_time, 2)} seconds')
+        finish_time = time.monotonic()
+        print(f'execution time of {func.__name__}: {round(finish_time - start_time, 2)} seconds')
 
     return inner
 

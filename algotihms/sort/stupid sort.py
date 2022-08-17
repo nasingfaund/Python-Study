@@ -1,6 +1,6 @@
 import copy
 
-from test_functions import generate_list, test
+from test_functions import test
 
 
 def find_min(numbers):
