@@ -17,6 +17,8 @@ def mock_load_page(*args, **kwargs):
 для этого и замокаем его с помощью monkeypatch
 monkeypatch умеет подменять значения в словарях, классах, переменных окружений и т.д.
 """
+
+
 def test_parse(monkeypatch):
     # мокаем метод load_page
     monkeypatch.setattr('mock.AbstractParser.load_page', mock_load_page)
@@ -28,7 +30,7 @@ class AbstractParser:
 
     # типа очень долго работающая функция
     def load_page(self, url):
-        time.sleep(3)
+        time.sleep(10000)
         return 'page'
 
     def parse(self, url):
