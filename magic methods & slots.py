@@ -37,7 +37,7 @@ class SlotsClass:
 class ChildSlotsClass(SlotsClass):
 
     def __init__(self, foo_value):
-        __slots__ = ('baz')
+        __slots__ = 'baz'
         super(ChildSlotsClass, self).__init__(foo_value)
 
 
