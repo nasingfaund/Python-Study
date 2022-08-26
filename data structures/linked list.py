@@ -14,12 +14,12 @@ class LinkedList:
 
         node = Node(value)
 
-        if self.__head is None:
+        if not self.__head:
             self.__head = node
         else:
             tail = self.__head
 
-            while tail.next is not None:
+            while tail.next:
                 tail = tail.next
 
             tail.next = node
@@ -35,7 +35,7 @@ class LinkedList:
         head = self.__head
         print(head.value, end=' ')
 
-        while head.next is not None:
+        while head.next:
             head = head.next
             print(head.value, end=' ')
 
