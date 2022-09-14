@@ -21,6 +21,7 @@ def RLE(inputStr):
 
     return result
 
+
 def deRLE(str):
     result = ''
     number = ''
@@ -62,7 +63,7 @@ decryptTests = {
     'ABC2DE2F': 'ABCCDEEF',
     'A4B3C2XYZD4E3F3A6B28': 'AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB',
     'A4B3C2XYZD4E3F3A6BCS4D2C': 'AAAABBBCCXYZDDDDEEEFFFAAAAAABCSSSSDDC',
-    'ABCDE' : 'ABCDE'
+    'ABCDE': 'ABCDE'
 }
 
 
