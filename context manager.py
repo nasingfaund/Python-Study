@@ -8,7 +8,7 @@ class Resource:
     def action(self):
         print('do something...')
 
-    # логика освобождения ресурса
+    # логика освобождения ресурса (private-метод)
     def __close(self):
         print('close resource')
 
