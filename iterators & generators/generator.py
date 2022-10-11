@@ -1,49 +1,48 @@
-# задача: разбить лист numbers на указаное количество частей (чанков)
+"""
+    задача: разбить лист numbers на указаное количество частей (чанков)
+    generator function solution (разбиваем по количеству чанков)
+"""
 
-# generator solution (разбиваем по количеству чанков)
 
-def chunksGenerate(numbers, chunksCount):
-    chunksSize = len(numbers) // chunksCount
+# 1. ФУКНЦИЯ-ГЕНЕРАТОР
+def chunksGenerate(numbers, chunks_count):
+    chunks_size = len(numbers) // chunks_count
     startIndex = 0
-    endIndex = chunksSize
+    endIndex = chunks_size
 
     while endIndex <= len(numbers):
         yield numbers[startIndex:endIndex]
-        startIndex += chunksSize
-        endIndex += chunksSize
+        startIndex += chunks_size
+        endIndex += chunks_size
 
 
 chunksCount = 4
 numbers = list(range(1, 101))
 
 chunkFunc = chunksGenerate(numbers, chunksCount)
-# print(next(chunkFunc))
-# print(next(chunkFunc))
-# print(next(chunkFunc))
-# print(next(chunkFunc))
 
-# ГЕНЕРАТОРЫ БЫВАЮТ ДВУХ ТИПОВ
-# 1. ФУКНЦИЯ-ГЕНЕРАТОР
+print(next(chunkFunc))
+print(next(chunkFunc))
+print(next(chunkFunc))
+print(next(chunkFunc))
 
-def test(x):
-    yield x + 1
-    yield x + 2
-    yield x + 5
-    return
-    # недостижимый код
-    yield x + 3
+print('\ngen_func:')
 
-t = test(10)
-print(next(t))
-print(next(t))
-print(next(t))
-# следующее выполнение генератора даст исключение StopIteration
-#print(next(t))
+
+def gen_func(x):
+    while True:
+        x = yield
+        x += 5
+        print(x, end=' ')
+
+
+g = gen_func(5)
+next(g)
+g.send(3)
+g.send(6)
+g.close()
 
 # 2. ГЕНЕРАТОРНОЕ ВЫРАЖЕНИЕ
-genexpr = (x**2 for x in range(1,5))
-print(next(genexpr))
-print(next(genexpr))
-print(next(genexpr))
-print(next(genexpr))
-
+print('\ngenexpr:')
+genexpr = (x ** 2 for x in range(1, 5))
+[print(v, end=' ') for v in genexpr]

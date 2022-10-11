@@ -1,31 +1,33 @@
-# 1. Явная реализация
-class IncreaseByTwo:
-    def __init__(self, count):
-        self.count = count
-        self.currentValue = 0
-        self.currentCount = 0
+# 1. явная реализация протокола итератора
+class IteratorClass:
+    def __init__(self):
+        self.collection = [x for x in range(2, 11) if x % 2 == 0]
+        self.current_index = -1
 
     def __iter__(self):
         return self
 
+    def get_current_value(self):
+        return self.collection[self.current_index]
+
     def __next__(self):
-        if self.currentCount < self.count:
-            self.currentValue += 2
-            self.currentCount += 1
-            return self.currentValue
+        self.current_index += 1
+
+        if self.current_index < len(self.collection):
+            return self.get_current_value()
         else:
             raise StopIteration
 
 
-iterator = IncreaseByTwo(5)
+iterator = IteratorClass()
 
 for v in iterator:
-    print(v)
+    print(v, end=' ')
 
+print()
 
-# итерируемый объект из списка
-l = [v for v in range(2, 11) if v % 2 == 0]
-it = iter(l)
+# 2. каст объекта к итератору
+it = iter([v for v in range(2, 11) if v % 2 == 0])
 
 for v in it:
-    print(v)
+    print(v, end=' ')
