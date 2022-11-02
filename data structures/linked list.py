@@ -8,7 +8,7 @@ class LinkedList:
 
     def __init__(self):
         self.__head = None
-        self.count = 0
+        self.__count = 0
 
     def add(self, value):
 
@@ -17,49 +17,47 @@ class LinkedList:
         if not self.__head:
             self.__head = node
         else:
-            tail = self.__head
-
-            while tail.next:
-                tail = tail.next
-
+            tail = self.__get_node_by_index(self.__count - 1)
             tail.next = node
 
-        self.count += 1
+        self.__count += 1
+
+    def __get_node_by_index(self, index):
+        if index not in range(0, self.__count):
+            raise Exception('index out of range')
+        node = self.__head
+
+        for _ in range(index):
+            node = node.next
+        return node
 
     def print(self):
 
-        if self.count == 0:
+        if self.__count == 0:
             print('empty list')
             return
 
-        head = self.__head
-        print(head.value, end=' ')
-
-        while head.next:
-            head = head.next
-            print(head.value, end=' ')
+        for i in range(self.__count):
+            print(self.__get_node_by_index(i).value, end=' ')
+        print()
 
     def remove(self, index):
 
-        if index not in range(0, self.count):
+        if index not in range(0, self.__count):
             raise Exception('index out of range')
 
         if index == 0:
             self.__head = self.__head.next
         else:
-            node = self.__head
-
-            for i in range(0, index - 1):
-                node = node.next
-
+            node = self.__get_node_by_index(index - 1)
             prev = node
             next = prev.next.next
             prev.next = next
 
-        self.count -= 1
+        self.__count -= 1
 
     def insert(self, index, value):
-        if index not in range(0, self.count):
+        if index not in range(0, self.__count):
             raise Exception('index out of range')
 
         newNode = Node(value)
@@ -69,16 +67,12 @@ class LinkedList:
             self.__head = newNode
         else:
 
-            node = self.__head
-
-            for i in range(0, index - 1):
-                node = node.next
-
+            node = self.__get_node_by_index(index - 1)
             prev = node
             newNode.next = prev.next
             prev.next = newNode
 
-        self.count += 1
+        self.__count += 1
 
     def reverse(self):
         current = self.__head
@@ -96,15 +90,23 @@ class LinkedList:
 
         self.__head = prev
 
+    @property
+    def count(self):
+        return self.__count
+
+
 l = LinkedList()
 l.add(1)
-l.add(2)
 l.add(3)
-l.add(1)
 l.add(222)
+l.add(2)
 l.add(55)
-l.reverse()
 l.print()
+
+l.remove(0)
+l.insert(3, 199)
+l.print()
+print(l.count)
 
 try:
 
@@ -150,7 +152,3 @@ try:
 
 except Exception as e:
     print(e)
-
-
-
-# написать юнит тест

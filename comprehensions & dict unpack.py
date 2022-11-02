@@ -20,9 +20,11 @@ class test:
         self.f3 = f3
 
 
-d = {
-    'f1': 3, 'f2': 2, 'f3': 22
+params = {
+    'f1': 3,
+    'f2': 2,
+    'f3': 22
 }
 
-o = test(**d)
+o = test(**params)
 print(o.__dict__)

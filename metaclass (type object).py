@@ -14,15 +14,20 @@ def print_attrs(self):
         print(f'{k}: {v}')
 
 
-# создаем класс с помощью метакласса type
-# сам класс называется test, а объект с ссылкой на класс может называться как угодно
-class_obj = type('test', (), {
+""" 
+создаем класс с помощью метакласса type
+параметры:
+    1 - имя класса
+    2 - кортеж классов, от которых хотим унаследоваться
+    3 - словарь со значениями атрибутов класса
+"""
+TestClass = type('test', (), {
     'attr1': None,
     '__init__': init_func,
     'print_attrs': print_attrs
 })
 
 # отрабатывают конструктор и метод print_attrs
-obj = class_obj('attr1 value', 'attr2 value')
+obj = TestClass('attr1 value', 'attr2 value')
 obj.print_attrs()
 
