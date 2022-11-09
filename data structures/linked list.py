@@ -108,47 +108,44 @@ l.insert(3, 199)
 l.print()
 print(l.count)
 
+linked_list = LinkedList()
+
+commands_map = {
+    'add': lambda: linked_list.add(int(input('value = '))),
+    'r': lambda: linked_list.remove(int(input('index = '))),
+    'c': lambda: print(f'elements count: {linked_list.count}'),
+    'p': linked_list.print,
+    'i':
+        (
+            lambda: linked_list.insert(
+                int(input('index: ')),
+                int(input('value: '))
+            )
+        ),
+    'rev': linked_list.reverse,
+}
+
 try:
 
     linkedList = LinkedList()
-    message = 'input command (a=add, r=remove, c=count, p=print, i=insert, e=exit, rev=reverse)'
+    message = 'input one from the next commands (add=add, r=remove, c=count, p=print, i=insert, exit=exit, rev=reverse)'
 
     while True:
 
         print('\n')
-        s = input(f'{message}: ')
+        input_ = input(f'{message}: ')
 
-        if s == 'a':
-            value = int(input('value = '))
-            linkedList.add(value)
-            continue
-
-        if s == 'r':
-            index = int(input('index = '))
-            linkedList.remove(index)
-            continue
-
-        if s == 'c':
-            print(f'elems count: {linkedList.count}')
-            continue
-
-        if s == 'p':
-            linkedList.print()
-            continue
-
-        if s == 'i':
-            index = int(input('index: '))
-            value = int(input('value: '))
-            linkedList.insert(index, value)
-            continue
-
-        if s == 'rev':
-            linkedList.reverse()
-            continue
-
-        if s == 'e':
+        if input_ == 'exit':
             print('exit')
             break
+
+        method = commands_map.get(input_, None)
+
+        if not method:
+            print(f"command '{input_}' does not exists")
+            continue
+        else:
+            method()
 
 except Exception as e:
     print(e)
