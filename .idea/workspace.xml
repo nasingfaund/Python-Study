@@ -55,7 +55,7 @@
       <recent name="C:\Users\nightblure\Desktop\dev\Python-Study" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_file_reader.test_with_file">
+  <component name="RunManager" selected="Python tests.Python tests for mock.test_parse">
     <configuration name="conftest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python Study" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,6 +98,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for mock.test_parse" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python Study" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytest/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;mock.test_parse&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_file_reader.test_with_file" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Python Study" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,20 +124,6 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_file_reader.test_with_file&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests in mock.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Python Study" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytest/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/pytest/tests/mock.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in test_division_func.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -156,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for mock.test_parse" />
         <item itemvalue="Python tests.Python tests for test_file_reader.test_with_file" />
         <item itemvalue="Python tests.Python tests in test_file_reader.py" />
         <item itemvalue="Python.conftest" />
         <item itemvalue="Python tests.Python tests in test_division_func.py" />
-        <item itemvalue="Python tests.Python tests in mock.py" />
       </list>
     </recent_temporary>
   </component>
