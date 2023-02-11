@@ -1,100 +1,101 @@
-class LRUCache:
+"""
+https://leetcode.com/problems/lru-cache/description/
 
-    def __init__(self, capacity: int):
-        self.capacity = capacity
-        self.h = {}
-        self.list = LinkedList()
+Input:
+    ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+    [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
 
-    def get(self, key: int) -> int:
-        if key in self.h:
-            node = self.h[key]
-            self.list.remove(node)
-            self.list.add(node.value, key)
-            self.h[key] = self.list.tail
-            print(node.value)
-            return node.value
-        print(-1)
-        return -1
+Output:
+    [null, null, null, 1, null, -1, null, -1, 3, 4]
 
-    def put(self, key: int, value: int) -> None:
-        if key in self.h:
-            self.list.remove(self.h[key])
-        else:
-            if self.list.count == self.capacity:
-                head = self.list.head
-                self.list.remove(head)
-                del self.h[head.key]
-
-        self.list.add(value, key)
-        self.h[key] = self.list.tail
-        self.list.tail.key = key
-
-
+Explanation:
+    cache = LRUCache(2);
+    cache.put(1, 1); // cache is {1=1}
+    cache.put(2, 2); // cache is {1=1, 2=2}
+    cache.get(1);    // return 1
+    cache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+    cache.get(2);    // returns -1 (not found)
+    cache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+    cache.get(1);    // return -1 (not found)
+    cache.get(3);    // return 3
+    cache.get(4);    // return 4
+"""
 class Node:
-    def __init__(self, value, key):
+    def __init__(self, key, value):
         self.value = value
         self.next = None
-        self.prev = None
         self.key = key
-
-    def __str__(self):
-        return str(self.value)
-
-    def __repr__(self):
-        return self.__str__()
+        self.prev = None
 
 
 class LinkedList:
 
     def __init__(self):
+        self.count = 0
         self.head = None
         self.tail = None
-        self.count = 0
 
-    def add(self, value, key):
+    def append(self, key, value) -> Node:
+        node = Node(key, value)
+
         if not self.head:
-            self.head = Node(value, key)
-            self.tail = self.head
+            self.head = self.tail = node
         else:
-            node = Node(value, key)
             self.tail.next = node
             node.prev = self.tail
             self.tail = node
 
         self.count += 1
+        return self.tail
 
     def remove(self, node):
-        if node == self.head:
+        if self.count == 1:
+            self.head = self.tail = None
+        elif node == self.head:
             self.head = self.head.next
-        if node == self.tail:
+        elif node == self.tail:
             self.tail = self.tail.prev
         else:
             prev = node.prev
             next = node.next
-
-            if prev:
-                prev.next = next
-            if next:
-                next.prev = prev
-
+            prev.next = next
+            next.prev = prev
         self.count -= 1
 
-    def print_(self):
-        node = self.head
-        while node:
-            print(node, end=' ')
-            node = node.next
 
-        print('')
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.nodes = LinkedList()
+        self.capacity = capacity
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            node = self.cache[key]
+            self.nodes.remove(node)
+            self.cache[key] = self.nodes.append(key, node.value)
+            return node.value
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self.nodes.remove(self.cache[key])
+        if self.nodes.count == self.capacity:
+            head = self.nodes.head
+            del self.cache[head.key]
+            self.nodes.remove(head)
+
+        self.cache[key] = self.nodes.append(key, value)
 
 
-lRUCache = LRUCache(2)
-lRUCache.put(1, 1)
-lRUCache.put(2, 2)
-lRUCache.get(1)
-lRUCache.put(3, 3)
-lRUCache.get(2)
-lRUCache.put(4, 4)
-lRUCache.get(1)
-lRUCache.get(3)
-lRUCache.get(4)
+cache = LRUCache(2)
+cache.put(1, 1)
+cache.put(2, 2)
+cache.get(1)
+cache.put(3, 3)
+cache.get(2)
+cache.put(4, 4)
+cache.get(1)
+cache.get(3)
+cache.get(4)
