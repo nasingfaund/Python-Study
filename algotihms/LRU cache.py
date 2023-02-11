@@ -46,12 +46,10 @@ class LinkedList:
             self.tail = node
 
         self.count += 1
-        return self.tail
+        return node
 
     def remove(self, node):
-        if self.count == 1:
-            self.head = self.tail = None
-        elif node == self.head:
+        if node == self.head:
             self.head = self.head.next
         elif node == self.tail:
             self.tail = self.tail.prev
